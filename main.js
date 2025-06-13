@@ -10,7 +10,7 @@ botoes[i].onclick = function () {
     }
 
     botoes[i].classList.add("ativo");
-    textos[j].classList.remove("ativo");
+    textos[j].classList.add("ativo");
 }
 }
 
@@ -36,17 +36,18 @@ function calculaTempo(TempoObjetivo) {
     horas %= 24;
     if (tempoFinal > 0){
         return dias + "dias " + horas + "horas " + minutos + "minutos " + segundos + "segundos ";
+    } else {
+        return "Prazo Finalizado";
     }
-
 }
 
-function atualizaCronometro(){
-    for (let i=0; i<contadores.length;i++){
+function atualizaCronometro() {
+    for (let i=0; i<contadores.length;i++) {
         contadores[i].textContent = calculaTempo(tempos[i]);
     }
     }
     
-    function comecaCronometro(){
+    function comecaCronometro() {
         atualizaCronometro();
         setInterval(atualizaCronometro,1000);
     }
